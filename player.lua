@@ -136,7 +136,7 @@ function Player:move(dt)
             --end
         --end
     elseif love.keyboard.isDown("a", "left") then
-        self.xVelocity = math.max(self.xVelocity + self.acceleration * dt, self.maxSpeed)
+        self.xVelocity = math.max(self.xVelocity - self.acceleration * dt, -self.maxSpeed)
         --if self.xVelocity > -self.maxSpeed then
             --if self.xVelocity - self.acceleration * dt > -self.maxSpeed then
                 --self.xVelocity = self.xVelocity - self.acceleration * dt

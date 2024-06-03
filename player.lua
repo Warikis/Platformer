@@ -12,6 +12,7 @@ function Player:load()
     self.friction = 3500
     self.gravity = 1500
     self.jumpAmount = -500
+    self.coins = 0
 
     self.doubleJump = true
     self.grounded = false
@@ -61,6 +62,11 @@ function Player:loadAssets()
     self.animation.draw = self.animation.idle.image[1]
     self.animation.width = self.animation.draw:getWidth()
     self.animation.height = self.animation.draw:getHeight()
+end
+
+
+function Player:incrementCoins()
+    self.coins = self.coins + 1
 end
 
 function Player:update(dt)

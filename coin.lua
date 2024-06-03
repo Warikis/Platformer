@@ -27,6 +27,8 @@ end
 function Coin:remove()
     for i, instance in ipairs(ActiveCoins) do
         if instance == self then
+            Player:incrementCoins()
+            --print(Player.coins)
             self.physics.body:destroy()
             table.remove(ActiveCoins, i)
         end

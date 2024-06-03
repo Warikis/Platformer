@@ -152,17 +152,19 @@ end
 
 function Player:applyFriction(dt)
     if self.xVelocity > 0 then
-        if self.xVelocity - self.friction * dt > 0 then
-            self.xVelocity = self.xVelocity - self.friction * dt
-        else
-            self.xVelocity = 0
-        end
+        self.xVelocity = math.max(self.xVelocity - self.friction * dt, 0)
+        --if self.xVelocity - self.friction * dt > 0 then
+            --self.xVelocity = self.xVelocity - self.friction * dt
+        --else
+            --self.xVelocity = 0
+        --end
     elseif self.xVelocity < 0 then
-        if self.xVelocity + self.friction * dt < 0 then
-            self.xVelocity = self.xVelocity + self.friction * dt
-        else
-            self.xVelocity = 0
-        end
+        self.xVelocity = math.min(self.xVelocity + self.friction * dt, 0)
+        --if self.xVelocity + self.friction * dt < 0 then
+            --self.xVelocity = self.xVelocity + self.friction * dt
+        --else
+            --self.xVelocity = 0
+        --end
     end
 end
 

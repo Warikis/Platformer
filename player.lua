@@ -82,7 +82,7 @@ function Player:setState()
     else
         self.state = "run"
     end
-    print(self.state)
+    --print(self.state)
 end
 
 function Player:setDirection()

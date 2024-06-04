@@ -3,6 +3,10 @@ Player = {}
 function Player:load()
     self.x = 100
     self.y = 0
+
+    self.startX = self.x
+    self.startY = self.y
+
     self.width = 20
     self.height = 60
     self.xVelocity = 0
@@ -12,8 +16,12 @@ function Player:load()
     self.friction = 3500
     self.gravity = 1500
     self.jumpAmount = -500
+
     self.coins = 0
 
+    self.health = {current = 3, max = 3}
+
+    self.alive = true
     self.doubleJump = true
     self.grounded = false
 
@@ -31,6 +39,8 @@ function Player:load()
     self.physics.shape = love.physics.newRectangleShape(self.width, self.height)
     self.physics.fixture = love.physics.newFixture(self.physics.body, self.physics.shape)
 
+    --self:takeDamage(1)
+    --self:takeDamage(2)
     --self.hero_atlas = love.graphics.newImage("assets/player/Idle.png")
     --self.hero_sprite = love.graphics.newQuad(20, 16, 36, 48, self.hero_atlas:getDimensions())
 end
@@ -65,11 +75,39 @@ function Player:loadAssets()
 end
 
 
+function Player:takeDamage(amount)
+    if self.health.current - amount > 0 then
+        self.health.current = self.health.current - amount
+    else 
+        self.health.current = 0
+        self:die()
+    end
+    print("Player hp: "..self.health.current)
+end
+
+
+function Player:die()
+    print("Player died")
+    self.alive = false
+end
+
+
+function Player:respawn()
+    if self.alive == false then
+        self.physics.body:setPosition(self.startX, self.startY)
+        self.health.current = self.health.max
+        self.alive = true
+    end
+end
+
+
 function Player:incrementCoins()
     self.coins = self.coins + 1
 end
 
+
 function Player:update(dt)
+    self:respawn()
     self:setState()
     self:setDirection()
     self:animate(dt)

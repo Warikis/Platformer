@@ -1,10 +1,11 @@
-Spike = {image = love.graphics.newImage("assets/spike.png")}
+local Spike = {image = love.graphics.newImage("assets/spike.png")}
 Spike.__index = Spike
 
 Spike.width = Spike.image:getWidth()
 Spike.height = Spike.image:getHeight()
 
-ActiveSpikes = {}
+local ActiveSpikes = {}
+local Player = require("player")
 
 
 function Spike.new(x, y)
@@ -57,3 +58,5 @@ function Spike.beginContact(a, b, collision)
         end
     end
 end
+
+return Spike

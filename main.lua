@@ -1,9 +1,9 @@
 love.graphics.setDefaultFilter('nearest', 'nearest')
 local sti = require("libraries/sti")
-require("player")
-require("coin")
-require("spike")
-require("gui")
+local Player = require("player")
+local Coin = require("coin")
+local Spike = require("spike")
+local GUI = require("gui")
 
 --love.graphics.setDefaultFilter('nearest', 'nearest')
 

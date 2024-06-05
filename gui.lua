@@ -1,4 +1,5 @@
-GUI = {}
+local GUI = {}
+local Player = require("player")
 
 function GUI:load()
     self.coins = {}
@@ -74,3 +75,5 @@ function GUI:displayCoinsNumber()
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.print(" : "..Player.coins, scoreX, scoreY)
 end
+
+return GUI

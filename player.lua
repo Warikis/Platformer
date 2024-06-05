@@ -1,4 +1,4 @@
-Player = {}
+local Player = {}
 
 function Player:load()
     self.x = 100
@@ -310,3 +310,5 @@ function Player:draw()
     --love.graphics.draw(self.hero_atlas, 25, 25, 0, 1, 1)
     --love.graphics.draw(self.hero_atlas, self.hero_sprite, self.x - self.width / 2, self.y - self.height / 2, 0, 1, 1)
 end
+
+return Player

@@ -45,7 +45,7 @@ function Player:load()
     self.physics.body:setFixedRotation(true)
     self.physics.shape = love.physics.newRectangleShape(self.width, self.height)
     self.physics.fixture = love.physics.newFixture(self.physics.body, self.physics.shape)
-
+    self.physics.body:setGravityScale(0)
     --self:takeDamage(1)
     --self:takeDamage(2)
     --self.hero_atlas = love.graphics.newImage("assets/player/Idle.png")

@@ -3,6 +3,7 @@ local sti = require("libraries/sti")
 local Player = require("player")
 local Coin = require("coin")
 local Spike = require("spike")
+local Stone = require("stone")
 local GUI = require("gui")
 local Camera = require("camera")
 
@@ -10,7 +11,7 @@ local Camera = require("camera")
 
 function love.load()
     Map = sti("map/2.lua", {"box2d"})
-    World = love.physics.newWorld(0, 0)
+    World = love.physics.newWorld(0, 2000)
     World:setCallbacks(beginContact, endContact)
 
     Map:box2d_init(World)
@@ -26,6 +27,7 @@ function love.load()
     Coin.new(200, 100)
     Coin.new(300, 100)
     Spike.new(400, 325)
+    Stone.new(900, 150)
 end
 
 function love.update(dt)
@@ -33,6 +35,7 @@ function love.update(dt)
     Player:update(dt)
     Coin.updateAll(dt)
     Spike.updateAll(dt)
+    Stone.updateAll(dt)
     GUI:update(dt)
     Camera:setPosition(Player.x, 0)
 end
@@ -47,6 +50,7 @@ function love.draw()
     Player:draw()
     Coin.drawAll()
     Spike.drawAll()
+    Stone.drawAll()
 
     Camera:clear()
 

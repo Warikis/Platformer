@@ -16,18 +16,29 @@ function love.load()
 
     Map:box2d_init(World)
     Map.layers.solid.visible = false
+    Map.layers.entity.visible = false
     MapWidth = Map.layers.ground.width * 16
 
     background = love.graphics.newImage("assets/background.png")
 
     GUI:load()
     Player:load()
+    spawnEntities()
+    --Coin.new(100, 100)
+    --Coin.new(200, 100)
+    --Coin.new(300, 100)
+    --Spike.new(400, 325)
+    --Stone.new(900, 150)
 
-    Coin.new(100, 100)
-    Coin.new(200, 100)
-    Coin.new(300, 100)
-    Spike.new(400, 325)
-    Stone.new(900, 150)
+    --for i in pairs(Map.layers.solid) do
+        --print(i)
+    --end
+
+    --for i in pairs(Map.layers.solid.objects) do
+        --print(i)
+    --end
+    --local objectOne = Map.layers.solid.objects[2].x
+    --print(objectOne)
 end
 
 function love.update(dt)
@@ -77,4 +88,20 @@ end
 
 function endContact(a, b, collision)
     Player:endContact(a, b, collision)
+end
+
+
+function spawnEntities()
+    for i, v in ipairs(Map.layers.entity.objects) do
+        --print(Map.layers.entity.objects[i].name)
+        --print(v.class)
+        --print(v.type)
+        if v.type == "Spikes" then
+            Spike.new(v.x + v.width / 2, v.y + v.height / 2)
+        elseif v.type == "Stone" then
+            Stone.new(v.x + v.width / 2, v.y + v.height / 2)
+        elseif v.type == "Coin" then
+            Coin.new(v.x, v.y)
+        end
+    end
 end

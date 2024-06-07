@@ -10,7 +10,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 26,
+  nextobjectid = 14,
   properties = {},
   tilesets = {
     {
@@ -85,139 +85,6 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 48, 47, 48, 0, 0, 0, 0, 0, 0, 47, 48, 47, 48, 47, 48, 47, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 48, 47, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 29, 29, 29, 29, 29, 35, 36, 35, 36, 35, 36, 35, 36, 35, 36, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30,
         43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 43, 43, 43, 43, 43, 43, 43, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 43, 43, 43, 43, 43, 49, 50, 49, 50, 49, 50, 49, 50, 49, 50, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44, 43, 44
-      }
-    },
-    {
-      type = "objectgroup",
-      draworder = "topdown",
-      id = 4,
-      name = "entity",
-      class = "",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      properties = {},
-      objects = {
-        {
-          id = 14,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 957.25,
-          y = 121.5,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 16,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 882,
-          y = 119.667,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 17,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 1162,
-          y = 269,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 18,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 294,
-          y = 135,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 19,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 212,
-          y = 134,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 20,
-          name = "Coin",
-          type = "Coin",
-          shape = "ellipse",
-          x = 513,
-          y = 276,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 21,
-          name = "Stone",
-          type = "Stone",
-          shape = "rectangle",
-          x = 734.955,
-          y = 216.227,
-          width = 34,
-          height = 34,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 23,
-          name = "Spikes",
-          type = "Spikes",
-          shape = "rectangle",
-          x = 403,
-          y = 301.667,
-          width = 34,
-          height = 34,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 24,
-          name = "Spikes",
-          type = "Spikes",
-          shape = "rectangle",
-          x = 574,
-          y = 302,
-          width = 34,
-          height = 34,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        }
       }
     },
     {
@@ -441,6 +308,35 @@ return {
           properties = {
             ["collidable"] = true
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "ice",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 895.667,
+          y = 335.667,
+          width = 160.333,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

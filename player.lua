@@ -130,6 +130,7 @@ function Player:update(dt)
     self:syncPhysics()
     self:move(dt)
     self:applyGravity(dt)
+    --self:setFriction()
 end
 
 
@@ -216,6 +217,15 @@ function Player:move(dt)
 end
 
 
+--function Player:setFriction()
+    --if self.x > 895 and self.x < 1055 then
+        --self.friction = 100
+    --else 
+        --self.friction = 3500
+    --end
+--end
+
+
 function Player:applyFriction(dt)
     if self.xVelocity > 0 then
         self.xVelocity = math.max(self.xVelocity - self.friction * dt, 0)
@@ -246,6 +256,11 @@ end
 function Player:beginContact(a, b, collision)
     if self.grounded == true then return end
     local nx, ny = collision:getNormal()
+    local contacts = World:getContacts()
+    local indexA, indexB = collision:getChildren()
+    --print(contacts)
+    --print(indexA)
+    --print(indexB)
     if a == self.physics.fixture then
         if ny > 0 then
             --meaning b(object) is below the a (player)

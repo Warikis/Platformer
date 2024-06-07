@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="90" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="26">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="90" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="14">
  <editorsettings>
   <export target="../2.lua" format="lua"/>
  </editorsettings>
@@ -33,29 +33,6 @@
 43,44,43,44,43,44,43,44,43,44,43,43,43,43,43,43,43,43,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,43,43,43,43,43,49,50,49,50,49,50,49,50,49,50,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44,43,44
 </data>
  </layer>
- <objectgroup color="#dd11cc" id="4" name="entity">
-  <object id="14" name="Coin" type="Coin" x="957.25" y="121.5">
-   <ellipse/>
-  </object>
-  <object id="16" name="Coin" type="Coin" x="882" y="119.667">
-   <ellipse/>
-  </object>
-  <object id="17" name="Coin" type="Coin" x="1162" y="269">
-   <ellipse/>
-  </object>
-  <object id="18" name="Coin" type="Coin" x="294" y="135">
-   <ellipse/>
-  </object>
-  <object id="19" name="Coin" type="Coin" x="212" y="134">
-   <ellipse/>
-  </object>
-  <object id="20" name="Coin" type="Coin" x="513" y="276">
-   <ellipse/>
-  </object>
-  <object id="21" name="Stone" type="Stone" x="734.955" y="216.227" width="34" height="34"/>
-  <object id="23" name="Spikes" type="Spikes" x="403" y="301.667" width="34" height="34"/>
-  <object id="24" name="Spikes" type="Spikes" x="574" y="302" width="34" height="34"/>
- </objectgroup>
  <layer id="2" name="grass" width="90" height="23">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -139,5 +116,8 @@
     <property name="collidable" type="bool" value="true"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup color="#0000ff" id="4" name="ice">
+  <object id="13" x="895.667" y="335.667" width="160.333" height="32"/>
  </objectgroup>
 </map>

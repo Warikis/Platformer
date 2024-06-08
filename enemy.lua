@@ -61,6 +61,15 @@ function Enemy:update(dt)
 end
 
 
+function Enemy.removeOld()
+    for i, v in ipairs(ActiveEnemys) do
+        v.physics.body:destroy()
+    end
+
+    ActiveEnemys = {}
+end
+
+
 function Enemy:incrementRage()
 
     self.rageCounter = self.rageCounter + 1

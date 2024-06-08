@@ -1,5 +1,5 @@
 love.graphics.setDefaultFilter('nearest', 'nearest')
-local sti = require("libraries/sti")
+
 local Player = require("player")
 local Coin = require("coin")
 local Spike = require("spike")
@@ -7,25 +7,18 @@ local Stone = require("stone")
 local GUI = require("gui")
 local Camera = require("camera")
 local Enemy = require("enemy")
+local Map = require("map")
 
 --love.graphics.setDefaultFilter('nearest', 'nearest')
 
 function love.load()
-    Map = sti("map/2.lua", {"box2d"})
-    World = love.physics.newWorld(0, 2000)
-    World:setCallbacks(beginContact, endContact)
-
-    Map:box2d_init(World)
-    Map.layers.solid.visible = false
-    Map.layers.entity.visible = false
-    MapWidth = Map.layers.ground.width * 16
+    Enemy.loadAssets()
+    Map:load()
 
     background = love.graphics.newImage("assets/background.png")
 
     GUI:load()
-    Enemy.loadAssets()
     Player:load()
-    spawnEntities()
     --Coin.new(100, 100)
     --Coin.new(200, 100)
     --Coin.new(300, 100)
@@ -52,12 +45,13 @@ function love.update(dt)
     Enemy.updateAll(dt)
     GUI:update(dt)
     Camera:setPosition(Player.x, 0)
+    Map:update(dt)
 end
 
 function love.draw()
     love.graphics.draw(background)
     --Map:draw(0, 0, 2, 2)
-    Map:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
+    Map.level:draw(-Camera.x, -Camera.y, Camera.scale, Camera.scale)
 
     Camera:apply()
 
@@ -85,7 +79,7 @@ function beginContact(a, b, collision)
     if Spike.beginContact(a, b, collision) == true then
         return
     end
-    
+
     Enemy.beginContact(a, b, collision)
     Player:beginContact(a, b, collision)
 end
@@ -93,22 +87,4 @@ end
 
 function endContact(a, b, collision)
     Player:endContact(a, b, collision)
-end
-
-
-function spawnEntities()
-    for i, v in ipairs(Map.layers.entity.objects) do
-        --print(Map.layers.entity.objects[i].name)
-        --print(v.class)
-        --print(v.type)
-        if v.type == "Spikes" then
-            Spike.new(v.x + v.width / 2, v.y + v.height / 2)
-        elseif v.type == "Stone" then
-            Stone.new(v.x + v.width / 2, v.y + v.height / 2)
-        elseif v.type == "Enemy" then
-            Enemy.new(v.x + v.width / 2, v.y + v.height / 2)
-        elseif v.type == "Coin" then
-            Coin.new(v.x, v.y)
-        end
-    end
 end

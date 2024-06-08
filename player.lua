@@ -102,10 +102,15 @@ end
 
 function Player:respawn()
     if self.alive == false then
-        self.physics.body:setPosition(self.startX, self.startY)
+        self:resetPosition()
         self.health.current = self.health.max
         self.alive = true
     end
+end
+
+
+function Player:resetPosition()
+    self.physics.body:setPosition(self.startX, self.startY)
 end
 
 

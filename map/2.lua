@@ -10,7 +10,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 5,
-  nextobjectid = 26,
+  nextobjectid = 28,
   properties = {},
   tilesets = {
     {
@@ -214,6 +214,19 @@ return {
           y = 302,
           width = 34,
           height = 34,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 27,
+          name = "Enemy",
+          type = "Enemy",
+          shape = "point",
+          x = 976.667,
+          y = 280,
+          width = 0,
+          height = 0,
           rotation = 0,
           visible = true,
           properties = {}

@@ -48,6 +48,7 @@ function Spike:drawAll()
     end
 end
 
+
 function Spike.beginContact(a, b, collision)
     for i, instance in ipairs(ActiveSpikes) do
         if a == instance.physics.fixture or b == instance.physics.fixture then

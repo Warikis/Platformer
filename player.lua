@@ -11,7 +11,7 @@ function Player:load()
     self.height = 60
     self.xVelocity = 0
     self.yVelocity = 0
-    self.maxSpeed = 400
+    self.maxSpeed = 300
     self.acceleration = 4000
     self.friction = 3500
     self.gravity = 1500
@@ -160,6 +160,7 @@ function Player:setDirection()
     end
 end
 
+
 function Player:animate(dt)
     self.animation.timer = self.animation.timer + dt
     if self.animation.timer > self.animation.rate then
@@ -179,11 +180,13 @@ function Player:setNewFrame()
     self.animation.draw = anim.image[anim.current]
 end
 
+
 function Player:decraseGraceTime(dt)
     if self.grounded == false then
         self.graceTime = self.graceTime - dt
     end
 end
+
 
 function Player:applyGravity(dt)
     if self.grounded == false then

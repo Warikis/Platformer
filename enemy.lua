@@ -146,6 +146,7 @@ function Enemy.beginContact(a, b, collision)
         if a == instance.physics.fixture or b == instance.physics.fixture then
             if a == Player.physics.fixture or b == Player.physics.fixture then
                 Player:takeDamage(instance.damage)
+                sounds.hitHurt:play()
             end
             instance:incrementRage()
             instance:flipDirection()

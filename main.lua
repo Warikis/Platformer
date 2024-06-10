@@ -19,6 +19,18 @@ function love.load()
 
     GUI:load()
     Player:load()
+    
+    sounds = {}
+    
+    sounds.hitHurt = love.audio.newSource("sounds/Hit_Hurt.wav", "static")
+    sounds.pickupCoin = love.audio.newSource("sounds/Pickup_Coin.wav", "static")
+    sounds.music = love.audio.newSource("sounds/music.mp3", "stream")
+    sounds.music:setLooping(true)
+    sounds.hitHurt:setVolume(0.5)
+    sounds.music:setVolume(0.5)
+    sounds.pickupCoin:setVolume(0.5)
+    sounds.music:play()
+
     --Coin.new(100, 100)
     --Coin.new(200, 100)
     --Coin.new(300, 100)
@@ -73,10 +85,12 @@ end
 
 function beginContact(a, b, collision)
     if Coin.beginContact(a, b, collision) == true then
+        sounds.pickupCoin:play()
         return
     end
 
     if Spike.beginContact(a, b, collision) == true then
+        sounds.hitHurt:play()
         return
     end
 
